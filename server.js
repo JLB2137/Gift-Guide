@@ -2,7 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const productsRouter = require('./controllers/products')
-
+const app = express();
 
 //env constants
 const PORT = process.env.PORT
