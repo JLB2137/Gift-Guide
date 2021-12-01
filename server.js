@@ -1,19 +1,16 @@
 //contstants
 const express = require('express')
 const mongoose = require('mongoose')
-const { connected } = require('process')
-//need to remove once file setup is completed
-const app = express()
-//need to remove for Heroku
-require('dotenv').config()
+const productsRouter = require('./controllers/products')
+
 
 //env constants
 const PORT = process.env.PORT
 const MONGODB_URL = process.env.MONGODB_URL
 
-app.get('/', (req,res) => {
-    res.render('index.ejs')
-})
+//middleware
+//appRouter
+app.use('/',productsRouter)
 
 //open port
 
