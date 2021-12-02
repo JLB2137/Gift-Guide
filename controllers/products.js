@@ -26,15 +26,6 @@ productRouter.get('/gift-guide/seed', (req,res) => {
     })
 })
 
-//show product
-productRouter.get('/gift-guide/:productID', (req,res) => {
-    Product.findById(req.params.productID, (err, product) => {
-        res.render('show_product.ejs', {
-            product
-        })
-    })
-
-})
 
 //show holidays
 productRouter.get('/gift-guide/holiday/:holidayID',(req,res) => {
@@ -46,6 +37,16 @@ productRouter.get('/gift-guide/holiday/:holidayID',(req,res) => {
 //new page
 productRouter.get('/gift-guide/new', (req,res) => {
     res.render('new.ejs')
+})
+
+//show product
+productRouter.get('/gift-guide/:productID', (req,res) => {
+    Product.findById(req.params.productID, (err, product) => {
+        res.render('show_product.ejs', {
+            product
+        })
+    })
+
 })
 
 //edit page

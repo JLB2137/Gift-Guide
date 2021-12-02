@@ -11,6 +11,14 @@
 <body>
     <h1>Working!</h1>
     <h3><%= product.name %></h3>
+    <h4><%= product.holiday %></h4>
+    <img src='<%= product.imgURL %>' width='400px'>
+    <p>Recipient: <%= product.recipient %></p>
+    <p>Price: $<%= product.price %></p>
+    <p>Quantity: <%= product.quantity %></p>
+    <p>Total Cost: $<%= product.totalCost %></p>
+    <p>In Stock: <%= product.inStock %></p>
+    <a href='<%= product.productURL %>'><p>Link</p></a>
     <form action='/gift-guide/<%= product._id %>/edit'>
         <input type='submit' value='Edit'>
     </form>

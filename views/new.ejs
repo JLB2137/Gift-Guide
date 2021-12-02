@@ -11,8 +11,16 @@
 <body>
     <h1>New Page</h1>
     <form action='/gift-guide' method='post'>
-        <input type='text' name='name'>
-        <input type='submit' name='submit'>
+        <p>Name: <input type='text' name='name' placeholder='Name'></p>
+        <p>Holiday: <input type='text' name='holiday' placeholder='Holiday'></p>
+        <p>Recipient: <input type='text' name='recipient' placeholder='Recipient'></p>
+        <p>Price: <input type='text' name='price' placeholder='Price'></p>
+        <p>Quantity: <input type='text' name='quantity' placeholder='Quantity'></p>
+        <p>Product URL: <input type='text' name='productURL' placeholder='Product URL'></p>
+        <p>Image URL: <input type='text' name='imgURL' placeholder='Image URL'></p>
+        <p>In Stock: <input type='checkbox' name='inStock'></p>
+        <p>Purchased: <input type='checkbox' name='purchased'></p>
+        <input type='submit' name='Submit'>
     </form>
 </body>
 </html>

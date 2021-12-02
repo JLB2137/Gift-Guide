@@ -11,8 +11,16 @@
 <body>
     <h1>Editing</h1>
     <form action='/gift-guide/<%= product._id %>?_method=put' method='post'>
-        <input type='text' name='name' placeholder='Name' value='<%= product.name %>'>
-        <input type='submit' name='submit'>
+        <p>Name: <input type='text' name='name' placeholder='Name' value='<%= product.name %>'></p>
+        <p>Holiday: <input type='text' name='holiday' placeholder='Holiday' value='<%= product.holiday %>'></p>
+        <p>Recipient: <input type='text' name='recipient' placeholder='Recipient' value='<%= product.recipient %>'></p>
+        <p>Price: <input type='text' name='price' placeholder='Price' value='<%= product.price %>'></p>
+        <p>Quantity: <input type='text' name='quantity' placeholder='Quantity' value='<%= product.quantity %>'></p>
+        <p>Product URL: <input type='text' name='productURL' placeholder='Product URL' value='<%= product.productURL %>'></p>
+        <p>Image URL: <input type='text' name='imgURL' placeholder='Image URL' value='<%= product.imgURL %>'></p>
+        <p>In Stock: <input type='checkbox' name='inStock' value='<%= product.inStock %>'></p>
+        <p>Purchased: <input type='checkbox' name='purchased' value='<%= product.pruchased %>'></p>
+        <input type='submit' name='Submit'>
     </form>
 </body>
 </html>
