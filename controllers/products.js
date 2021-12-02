@@ -2,6 +2,8 @@ const express = require('express')
 const productRouter = express.Router() 
 const Product = require('../models/product')
 const seedProducts = require('../models/seed')
+const app = express()
+
 
 
 //index page redirect
@@ -26,6 +28,29 @@ productRouter.get('/gift-guide/seed', (req,res) => {
     })
 })
 
+//create
+productRouter.post('/gift-guide', (req,res) => {
+    //update checkboxes, if they haven't been filled out and are undefined set the value to false
+    if (req.body.purchased !== undefined) {
+        req.body.purchased = true
+        
+    } else {
+        req.body.purchased = false
+    }
+    if (req.body.inStock !== undefined) {
+        req.body.inStock = true
+
+    } else {
+        req.body.inStock = false
+    }
+    //calculate total cost based on input
+    req.body.totalCost = req.body.price * req.body.quantity
+    console.log(req.body)
+    Product.create(req.body, (err,product) => {
+        res.redirect('/gift-guide')
+    })
+})
+
 
 //show holidays
 productRouter.get('/gift-guide/holiday/:holidayID',(req,res) => {
@@ -42,6 +67,8 @@ productRouter.get('/gift-guide/new', (req,res) => {
 //show product
 productRouter.get('/gift-guide/:productID', (req,res) => {
     Product.findById(req.params.productID, (err, product) => {
+        console.log('showing the product:',product)
+        console.log('url',req.url)
         res.render('show_product.ejs', {
             product
         })
@@ -60,6 +87,17 @@ productRouter.get('/gift-guide/:productID/edit', (req,res) => {
 
 //update
 productRouter.put('/gift-guide/:productID', (req,res) => {
+    //update checkboxes, if they haven't been filled out and are undefined set the value to false
+    if (req.body.purchased !== undefined) {
+        req.body.purchased = true
+    } else {
+        req.body.purchased = false
+    }
+    if (req.body.inStock !== undefined) {
+        req.body.inStock = true
+    } else {
+        req.body.inStock = false
+    }
     Product.findByIdAndUpdate(req.params.productID, req.body, {new:true}, (err, product) => {
         res.redirect('/gift-guide')
     })
@@ -72,12 +110,6 @@ productRouter.delete('/gift-guide/:productID', (req,res) => {
     })
 })
 
-//create
-productRouter.post('/gift-guide', (req,res) => {
-    console.log(req.body)
-    Product.create(req.body, {new:true}, (err,product) => {
-        res.redirect('/gift-guide')
-    })
-})
+
 
 module.exports = productRouter
