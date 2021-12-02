@@ -25,6 +25,23 @@ productRouter.get('/gift-guide/holiday/:holidayID',(req,res) => {
     res.render('show_holiday.ejs')
 })
 
+//show product
+productRouter.get('/gift-guide/:productID', (req,res) => {
+    Product.findById(req.params.productID, (err, product) => {
+        res.render('show_product.ejs', {
+            product
+        })
+    })
+
+})
+
+
+//new page
+productRouter.get('/gift-guide/new', (req,res) => {
+    res.render('new.ejs')
+})
+
+
 
 //create
 productRouter.post('/gift-guide', (req,res) => {
@@ -33,11 +50,5 @@ productRouter.post('/gift-guide', (req,res) => {
         res.redirect('/gift-guide')
     })
 })
-
-//new page
-productRouter.get('/gift-guide/new', (req,res) => {
-    res.render('new.ejs')
-})
-
 
 module.exports = productRouter
