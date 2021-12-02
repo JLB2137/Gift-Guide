@@ -9,6 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Working!</h1>
+    <h1>Editing</h1>
+    <form action='/gift-guide/<%= product._id %>?_method=put' method='post'>
+        <input type='text' name='name' placeholder='Name' value='<%= product.name %>'>
+        <input type='submit' name='submit'>
+    </form>
 </body>
 </html>

@@ -19,12 +19,6 @@ productRouter.get('/gift-guide', (req,res) => {
     })
 })
 
-//show holidays
-productRouter.get('/gift-guide/holiday/:holidayID',(req,res) => {
-    //need to add holiday ID
-    res.render('show_holiday.ejs')
-})
-
 //show product
 productRouter.get('/gift-guide/:productID', (req,res) => {
     Product.findById(req.params.productID, (err, product) => {
@@ -35,13 +29,33 @@ productRouter.get('/gift-guide/:productID', (req,res) => {
 
 })
 
+//show holidays
+productRouter.get('/gift-guide/holiday/:holidayID',(req,res) => {
+    //need to add holiday ID
+    res.render('show_holiday.ejs')
+})
+
 
 //new page
 productRouter.get('/gift-guide/new', (req,res) => {
     res.render('new.ejs')
 })
 
+//edit page
+productRouter.get('/gift-guide/:productID/edit', (req,res) => {
+    Product.findById(req.params.productID, (err,product) => {
+        res.render('edit.ejs', {
+            product
+        })
+    })
+})
 
+//update
+productRouter.put('/gift-guide/:productID', (req,res) => {
+    Product.findByIdAndUpdate(req.params.productID, req.body, {new:true}, (err, product) => {
+        res.redirect('/gift-guide')
+    })
+})
 
 //create
 productRouter.post('/gift-guide', (req,res) => {
