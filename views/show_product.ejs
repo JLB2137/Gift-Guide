@@ -14,6 +14,8 @@
     <form action='/gift-guide/<%= product._id %>/edit'>
         <input type='submit' value='Edit' id='edit'>
     </form>
-    
+    <form action='/gift-guide/<%= product._id %>?_method=delete' method='post'>
+        <input type='submit' Value='Delete'>
+    </form>
 </body>
 </html>

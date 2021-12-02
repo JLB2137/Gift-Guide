@@ -57,6 +57,13 @@ productRouter.put('/gift-guide/:productID', (req,res) => {
     })
 })
 
+//delete
+productRouter.delete('/gift-guide/:productID', (req,res) => {
+    Product.findByIdAndDelete(req.params.productID, (err, deletedProduct) => {
+        res.redirect('/gift-guide')
+    })
+})
+
 //create
 productRouter.post('/gift-guide', (req,res) => {
     console.log(req.body)
