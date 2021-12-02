@@ -10,6 +10,7 @@ const products = new Schema ({
     holiday: String,
     inStock: Boolean,
     productURL: String,
+    imgURL: String,
     purchased: Boolean
 })
 

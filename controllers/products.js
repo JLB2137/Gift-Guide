@@ -1,7 +1,7 @@
 const express = require('express')
 const productRouter = express.Router() 
 const Product = require('../models/product')
-
+const seedProducts = require('../models/seed')
 
 
 //index page redirect
@@ -16,6 +16,13 @@ productRouter.get('/gift-guide', (req,res) => {
         res.render('index.ejs', {
             product: allProducts
         })
+    })
+})
+
+//seed
+productRouter.get('/gift-guide/seed', (req,res) => {
+    Product.create(seedProducts, (err,newProduct) => {
+        res.redirect('/gift-guide')
     })
 })
 
