@@ -110,6 +110,6 @@ productRouter.delete('/gift-guide/:productID', (req,res) => {
     })
 })
 
-
+//current issue is that all products keep duplicating calls for the show page
 
 module.exports = productRouter
