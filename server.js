@@ -2,7 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const productsRouter = require('./controllers/products')
-const app = express();
+const app = express()
 const methodOverride = require('method-override')
 
 //remove after done with nodemon
@@ -13,9 +13,9 @@ const PORT = process.env.PORT
 const MONGODB_URL = process.env.MONGODB_URL
 
 //middleware
-
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
+//setup for jQuery and CSS files in public
 app.use('/public', express.static('public'))
 
 //appRouter
