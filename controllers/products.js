@@ -5,7 +5,6 @@ const seedProducts = require('../models/seed')
 const checkboxUpdater = require('../public/scripts/routerFunctions')
 
 
-
 //index page redirect
 productRouter.get('/', (req,res) => {
     res.redirect('/gift-guide')
@@ -15,8 +14,17 @@ productRouter.get('/', (req,res) => {
 //index page
 productRouter.get('/gift-guide', (req,res) => {
     Product.find({}, (err,allProducts) => {
+        let holiday = new Set()
+        let recipient = new Set()
+        allProducts.forEach(element => {
+            holiday.add(element.holiday)
+            recipient.add(element.recipient)
+        })
+        console.log(holiday,recipient)
         res.render('index.ejs', {
-            product: allProducts
+            product: allProducts,
+            holiday,
+            recipient
         })
     })
 })

@@ -13,20 +13,15 @@
     <h1>Welcome to the Gift Guide</h1>
     <% product.forEach(element => { %> 
         <a href='/gift-guide/<%= element._id %> '><h3><%= element.name %></h3></a>
-    <% }) %>
-    <div id='holiday1div'>
-        
-    </div>
-    <div id='holiday2div'>
-        <form id='holiday2'>
-            <select id='selector2'>
-                <% product.forEach(element => { %> 
-                    <option value='<%= element.holiday %>'><%= element.holiday %></option>
-                <% }) %>
-            </select>
-            <input id='submit2' type='submit' value='Submit'>
-        </form>
-    </div>
+    <% }) %>   
+    <form>
+        <select id='holiday-selector'>
+            <% holiday.forEach(element => { %> 
+                <option><%= element %></option>
+            <% }) %>
+        </select>
+        <input id='submit-holiday' type='submit' value='Submit'>
+    </form>
 
 </body>
 </html>
