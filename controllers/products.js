@@ -2,7 +2,7 @@ const express = require('express')
 const productRouter = express.Router() 
 const Product = require('../models/product')
 const seedProducts = require('../models/seed')
-const app = express()
+const checkboxUpdater = require('../public/scripts/routerFunctions')
 
 
 
@@ -31,21 +31,9 @@ productRouter.get('/gift-guide/seed', (req,res) => {
 //create
 productRouter.post('/gift-guide', (req,res) => {
     //update checkboxes, if they haven't been filled out and are undefined set the value to false
-    if (req.body.purchased !== undefined) {
-        req.body.purchased = true
-        
-    } else {
-        req.body.purchased = false
-    }
-    if (req.body.inStock !== undefined) {
-        req.body.inStock = true
-
-    } else {
-        req.body.inStock = false
-    }
+    checkboxUpdater(req.body)
     //calculate total cost based on input
     req.body.totalCost = req.body.price * req.body.quantity
-    console.log(req.body)
     Product.create(req.body, (err,product) => {
         res.redirect('/gift-guide')
     })
@@ -54,8 +42,22 @@ productRouter.post('/gift-guide', (req,res) => {
 
 //show holidays
 productRouter.get('/gift-guide/holiday/:holidayID',(req,res) => {
-    //need to add holiday ID
-    res.render('show_holiday.ejs')
+    Product.find({holiday: `${req.params.holidayID}`}, (err,product) => {
+        res.render('show_holiday.ejs', {
+            product
+        })
+    })
+
+})
+
+//show recipient
+productRouter.get('/gift-guide/recipient/:recipientID',(req,res) => {
+    Product.find({recipient: `${req.params.recipientID}`}, (err,product) => {
+        res.render('show_recipient.ejs', {
+            product
+        })
+    })
+
 })
 
 
@@ -88,16 +90,9 @@ productRouter.get('/gift-guide/:productID/edit', (req,res) => {
 //update
 productRouter.put('/gift-guide/:productID', (req,res) => {
     //update checkboxes, if they haven't been filled out and are undefined set the value to false
-    if (req.body.purchased !== undefined) {
-        req.body.purchased = true
-    } else {
-        req.body.purchased = false
-    }
-    if (req.body.inStock !== undefined) {
-        req.body.inStock = true
-    } else {
-        req.body.inStock = false
-    }
+    checkboxUpdater(req.body)
+    //update total cost based on input price and quantity
+    req.body.totalCost = req.body.price * req.body.quantity
     Product.findByIdAndUpdate(req.params.productID, req.body, {new:true}, (err, product) => {
         res.redirect('/gift-guide')
     })

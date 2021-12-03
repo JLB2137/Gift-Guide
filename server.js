@@ -15,7 +15,6 @@ const MONGODB_URL = process.env.MONGODB_URL
 
 
 //connect to DB
-
 mongoose.connect(MONGODB_URL)
 
 const db = mongoose.connection

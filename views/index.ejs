@@ -5,13 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer type="text/javascript" src="../public/script.js"></script>
+    <script defer type="text/javascript" src="../public/scripts/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="../public/css/index_style.css"> 
     <title>Gift Guide</title>
 </head>
 <body>
-    <h1>Working!</h1>
+    <h1>Welcome to the Gift Guide</h1>
     <% product.forEach(element => { %> 
         <a href='/gift-guide/<%= element._id %> '><h3><%= element.name %></h3></a>
-   <% }) %>
+    <% }) %>
+    <div id='holiday1div'>
+        
+    </div>
+    <div id='holiday2div'>
+        <form id='holiday2'>
+            <select id='selector2'>
+                <% product.forEach(element => { %> 
+                    <option value='<%= element.holiday %>'><%= element.holiday %></option>
+                <% }) %>
+            </select>
+            <input id='submit2' type='submit' value='Submit'>
+        </form>
+    </div>
+
 </body>
 </html>
