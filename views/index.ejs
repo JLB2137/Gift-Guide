@@ -11,17 +11,32 @@
 </head>
 <body>
     <h1>Welcome to the Gift Guide</h1>
-    <% product.forEach(element => { %> 
-        <a href='/gift-guide/<%= element._id %> '><h3><%= element.name %></h3></a>
-    <% }) %>   
-    <form>
+    <div class='holiday-selector'>
+        <p>Holiday Selector:</p>
         <select id='holiday-selector'>
             <% holiday.forEach(element => { %> 
                 <option><%= element %></option>
             <% }) %>
         </select>
-        <input id='submit-holiday' type='submit' value='Submit'>
-    </form>
-
+        <a id='holiday-selector-link' href='/gift-guide/'><input id='submit-holiday' type='submit' value='Submit'></a>
+    </div>
+    <div class='recipient-selector'>
+        <p>Recipient Selector:</p>
+        <select id='recipient-selector'>
+            <% recipient.forEach(element => { %> 
+                <option><%= element %></option>
+            <% }) %>
+        </select>
+        <a id='recipient-selector-link' href='/gift-guide/'><input id='submit-recipient' type='submit' value='Submit'></a>
+    </div>
+    <div class='products'>
+        <% product.forEach(element => { %>
+            <a href='/gift-guide/<%= element._id %>'><img width='400px' src='<%= element.imgURL %>'></a>
+            <h3>Name: <%= element.name %></h3>
+            <h5>Holiday: <a href='/gift-guide/holiday/<%= element.holiday %>'><%= element.holiday %></a></h5>
+            <h5>Recipient: <a href='/gift-guide/recipient/<%= element.recipient %>'><%= element.recipient %></a></h5>
+            <a href='/gift-guide/<%= element._id %>/edit'><input type='submit' value='Edit'></a>
+        <% }) %>
+    </div>
 </body>
 </html>

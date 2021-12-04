@@ -2,7 +2,7 @@ const express = require('express')
 const productRouter = express.Router() 
 const Product = require('../models/product')
 const seedProducts = require('../models/seed')
-const checkboxUpdater = require('../public/scripts/routerFunctions')
+const requestUpdater = require('../public/scripts/routerFunctions')
 
 
 //index page redirect
@@ -20,7 +20,6 @@ productRouter.get('/gift-guide', (req,res) => {
             holiday.add(element.holiday)
             recipient.add(element.recipient)
         })
-        console.log(holiday,recipient)
         res.render('index.ejs', {
             product: allProducts,
             holiday,
@@ -39,7 +38,7 @@ productRouter.get('/gift-guide/seed', (req,res) => {
 //create
 productRouter.post('/gift-guide', (req,res) => {
     //update checkboxes, if they haven't been filled out and are undefined set the value to false
-    checkboxUpdater(req.body)
+    requestUpdater(req.body)
     //calculate total cost based on input
     req.body.totalCost = req.body.price * req.body.quantity
     Product.create(req.body, (err,product) => {
@@ -98,7 +97,7 @@ productRouter.get('/gift-guide/:productID/edit', (req,res) => {
 //update
 productRouter.put('/gift-guide/:productID', (req,res) => {
     //update checkboxes, if they haven't been filled out and are undefined set the value to false
-    checkboxUpdater(req.body)
+    requestUpdater(req.body)
     //update total cost based on input price and quantity
     req.body.totalCost = req.body.price * req.body.quantity
     Product.findByIdAndUpdate(req.params.productID, req.body, {new:true}, (err, product) => {

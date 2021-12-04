@@ -3,18 +3,26 @@
 //$header.html('Still working')
 
 console.log('working')
-//const Product = require('../models/product')
-const $div1 = $('#holiday1div')
-const $div2 = $('#holiday2div')
-const $submit2 = $('#submit2')
-const $form2 = $('#holiday2')
-const $selector2 = $('#selector2')
+//holiday constants
+const $holidaySubmit = $('#submit-holday')
+const $selectHoliday = $('#holiday-selector')
+const $holidaySelectorLink = $('#holiday-selector-link')
+//recipient constants
+const $recipientSubmit = $('#submit-recipient')
+const $selectRecipient = $('#recipient-selector')
+const $recipientSelectorLink = $('#recipient-selector-link')
 
-
-/*$selector2.on('change', function (evt) {
-    console.log(`${$(evt.target).val()}`)
-
+$selectHoliday.on('change', function(evt) {
+    //when the holiday is changed, change the link of the submit to
+    //the selected holday
+    $holidaySelectorLink.attr('href',`/gift-guide/holiday/${$(evt.target).val()}`)
 })
-*/
-//Product.find()
+
+$selectRecipient.on('change', function(evt) {
+    //when the holiday is changed, change the link of the submit to
+    //the selected holday
+    $recipientSelectorLink.attr('href',`/gift-guide/recipient/${$(evt.target).val()}`)
+})
+
+
 
