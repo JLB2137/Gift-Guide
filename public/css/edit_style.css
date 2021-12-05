@@ -104,12 +104,13 @@ background: linear-gradient(135deg, #80A646 25%, transparent 25%) -10px 0/ 20px 
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: 10px;
 }
 
 .product {
     display: flex;
     flex-direction: column;
-    text-align: justify;
+    text-align: center;
     width: 500px;
     background-color: #8fb14e;
     color:#f9f355;
@@ -139,3 +140,10 @@ img {
     border-radius: 5px;
 }
 
+p {
+    font-size: 25px;
+}
+
+input {
+    font-size: 25px;
+}
