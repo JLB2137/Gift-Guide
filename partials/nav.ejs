@@ -1,0 +1,27 @@
+<div class='nav'>
+    <div class='nav-left'>
+        <a>Holiday Gift Guide</a>
+    </div>
+    <div class='nav-center'>
+        <a href='/gift-guide'>Home</a>
+        <div class='holiday-dropdown'>
+            <a class='drop-button'>Holiday</a>
+            <div class='holiday-dropdown-content'>
+                <% holiday.forEach(element => { %> 
+                    <a href='/gift-guide/holiday/<%= element %>'><%= element %></a>
+                <% }) %>
+            </div>
+        </div>
+        <div class='holiday-dropdown'>
+            <a class='drop-button'>Recipient</a>
+            <div class='holiday-dropdown-content'>
+                <% recipient.forEach(element => { %> 
+                    <a href='/gift-guide/holiday/<%= element %>'><%= element %></a>
+                <% }) %>
+            </div>
+        </div>
+        <a href='/gift-guide/new'>Add New Gift</a>
+    </div> 
+    <div class='nav-right'>
+    </div>
+</div>

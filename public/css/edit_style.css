@@ -109,9 +109,8 @@ background: linear-gradient(135deg, #80A646 25%, transparent 25%) -10px 0/ 20px 
 .product {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    width: 200px;
-    margin: 10px;
+    text-align: justify;
+    width: 500px;
     background-color: #8fb14e;
     color:#f9f355;
     padding: 10px;
@@ -134,7 +133,7 @@ img {
     border: solid #D94740 2.5px;
 }
 
-input {
+.submit {
     background-color: #D94740;
     color: #FFFEF5;
     border-radius: 5px;

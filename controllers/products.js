@@ -70,16 +70,37 @@ productRouter.get('/gift-guide/recipient/:recipientID',(req,res) => {
 
 //new page
 productRouter.get('/gift-guide/new', (req,res) => {
-    res.render('new.ejs')
+    Product.find({}, (err,allProducts) => {
+        let holiday = new Set()
+        let recipient = new Set()
+        allProducts.forEach(element => {
+            holiday.add(element.holiday)
+            recipient.add(element.recipient)
+        })
+        res.render('new.ejs', {
+            holiday,
+            recipient
+        })
+    })
 })
 
 //show product
 productRouter.get('/gift-guide/:productID', (req,res) => {
     Product.findById(req.params.productID, (err, product) => {
-        console.log('showing the product:',product)
-        console.log('url',req.url)
-        res.render('show_product.ejs', {
-            product
+        Product.find({}, (err,allProducts) => {
+            let holiday = new Set()
+            let recipient = new Set()
+            allProducts.forEach(element => {
+                holiday.add(element.holiday)
+                recipient.add(element.recipient)
+            })
+            console.log('showing the product:',product)
+            console.log('url',req.url)
+            res.render('show_product.ejs', {
+                product,
+                holiday,
+                recipient
+            })
         })
     })
 
@@ -88,8 +109,18 @@ productRouter.get('/gift-guide/:productID', (req,res) => {
 //edit page
 productRouter.get('/gift-guide/:productID/edit', (req,res) => {
     Product.findById(req.params.productID, (err,product) => {
-        res.render('edit.ejs', {
-            product
+        Product.find({}, (err,allProducts) => {
+            let holiday = new Set()
+            let recipient = new Set()
+            allProducts.forEach(element => {
+                holiday.add(element.holiday)
+                recipient.add(element.recipient)
+            })
+            res.render('edit.ejs', {
+                product,
+                holiday,
+                recipient
+            })
         })
     })
 })

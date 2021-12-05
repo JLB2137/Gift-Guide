@@ -6,24 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer type="text/javascript" src="../public/scripts/edit.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/css/show_style.css"> 
     <title>Gift Guide</title>
 </head>
 <body>
-    <h1>Working!</h1>
-    <h3><%= product.name %></h3>
-    <h4><%= product.holiday %></h4>
-    <img src='<%= product.imgURL %>' width='400px'>
-    <p>Recipient: <%= product.recipient %></p>
-    <p>Price: $<%= product.price %></p>
-    <p>Quantity: <%= product.quantity %></p>
-    <p>Total Cost: $<%= product.totalCost %></p>
-    <p>In Stock: <%= product.inStock %></p>
-    <a href='<%= product.productURL %>'><p>Link</p></a>
-    <form action='/gift-guide/<%= product._id %>/edit'>
-        <input type='submit' value='Edit'>
-    </form>
-    <form action='/gift-guide/<%= product._id %>?_method=delete' method='post'>
-        <input type='submit' Value='Delete'>
-    </form>
+    <%- include('../partials/nav.ejs') %>
+    <div class='products-container'>
+        <div class=product>
+            <h4><%= product.name %></h4>
+            <h3><%= product.holiday %></h3>
+            <img src='<%= product.imgURL %>' width='400px'>
+            <p>Recipient: <%= product.recipient %></p>
+            <p>Price: $<%= product.price %></p>
+            <p>Quantity: <%= product.quantity %></p>
+            <p>Total Cost: $<%= product.totalCost %></p>
+            <p>In Stock: <%= product.inStock %></p>
+            <a href='<%= product.productURL %>'><p>Link</p></a>
+            <div class='forms'>
+                <form action='/gift-guide/<%= product._id %>/edit'>
+                    <input type='submit' value='Adjust Gift Information'>
+                </form>
+                <form action='/gift-guide/<%= product._id %>?_method=delete' method='post'>
+                    <input type='submit' Value='Delete Gift'>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -5,22 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer type="text/javascript" src="../public/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/css/edit_style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Editing</h1>
-    <form action='/gift-guide/<%= product._id %>?_method=put' method='post'>
-        <p>Name: <input type='text' name='name' placeholder='Name' value='<%= product.name %>'></p>
-        <p>Holiday: <input type='text' name='holiday' placeholder='Holiday' value='<%= product.holiday %>'></p>
-        <p>Recipient: <input type='text' name='recipient' placeholder='Recipient' value='<%= product.recipient %>'></p>
-        <p>Price: <input type='text' name='price' placeholder='Price' value='<%= product.price %>'></p>
-        <p>Quantity: <input type='text' name='quantity' placeholder='Quantity' value='<%= product.quantity %>'></p>
-        <p>Product URL: <input type='text' name='productURL' placeholder='Product URL' value='<%= product.productURL %>'></p>
-        <p>Image URL: <input type='text' name='imgURL' placeholder='Image URL' value='<%= product.imgURL %>'></p>
-        <p>In Stock: <input type='checkbox' name='inStock' value='<%= product.inStock %>'></p>
-        <p>Purchased: <input type='checkbox' name='purchased' value='<%= product.pruchased %>'></p>
-        <input type='submit' name='Submit'>
-    </form>
+    <%- include('../partials/nav.ejs') %>
+    <div class='products-container'>
+        <div class='product'>
+            <form action='/gift-guide/<%= product._id %>?_method=put' method='post'>
+                <p>Name: <input class='info' type='text' name='name' placeholder='Name' value='<%= product.name %>'></p>
+                <p>Holiday: <input class='info' type='text' name='holiday' placeholder='Holiday' value='<%= product.holiday %>'></p>
+                <p>Recipient: <input class='info' type='text' name='recipient' placeholder='Recipient' value='<%= product.recipient %>'></p>
+                <p>Price: <input class='info' type='text' name='price' placeholder='Price' value='<%= product.price %>'></p>
+                <p>Quantity: <input class='info' type='text' name='quantity' placeholder='Quantity' value='<%= product.quantity %>'></p>
+                <p>Product URL: <input class='info' type='text' name='productURL' placeholder='Product URL' value='<%= product.productURL %>'></p>
+                <p>Image URL: <input class='info' type='text' name='imgURL' placeholder='Image URL' value='<%= product.imgURL %>'></p>
+                <p>In Stock: <input class='info' type='checkbox' name='inStock' value='<%= product.inStock %>'></p>
+                <p>Purchased: <input class='info' type='checkbox' name='purchased' value='<%= product.pruchased %>'></p>
+                <input class='submit' type='submit' name='Submit'>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

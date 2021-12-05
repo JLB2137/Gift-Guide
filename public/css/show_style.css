@@ -110,7 +110,7 @@ background: linear-gradient(135deg, #80A646 25%, transparent 25%) -10px 0/ 20px 
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 200px;
+    width: 500px;
     margin: 10px;
     background-color: #8fb14e;
     color:#f9f355;
@@ -124,19 +124,39 @@ background: linear-gradient(135deg, #80A646 25%, transparent 25%) -10px 0/ 20px 
     color: #FFFEF5;
 }
 
-.product h3, .product h5, .product input {
-    margin: 4px;
+.product h3, .product h4, .product input, .product p {
+    margin: 10px;
 }
 
 img {
-    width: 150px;
+    width: 300px;
     border-radius: 5px;
     border: solid #D94740 2.5px;
+    margin:0 auto;
 }
 
 input {
     background-color: #D94740;
     color: #FFFEF5;
     border-radius: 5px;
+    font-size: 20px;
 }
 
+.forms {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+h4 {
+    font-size: 50px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+
+p {
+    font-size: 25px;
+}
