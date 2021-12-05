@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/public/css/edit_style.css">
+    <script defer src='/public/scripts/api.js'></script>
     <title>Document</title>
 </head>
 <body>
@@ -19,6 +21,9 @@
                 <p>Price: <input class='info' type='text' name='price' placeholder='Price' value='<%= product.price %>'></p>
                 <p>Quantity: <input class='info' type='text' name='quantity' placeholder='Quantity' value='<%= product.quantity %>'></p>
                 <p>Product URL: <input class='info' type='text' name='productURL' placeholder='Product URL' value='<%= product.productURL %>'></p>
+                <img src=''>
+                <p>Image Search: <input id='search-input' type='text'></p>
+                <input id='img-search' type='submit' value='Search'>
                 <p>Image URL: <input class='info' type='text' name='imgURL' placeholder='Image URL' value='<%= product.imgURL %>'></p>
                 <p>In Stock: <input class='info' type='checkbox' name='inStock' value='<%= product.inStock %>'></p>
                 <p>Purchased: <input class='info' type='checkbox' name='purchased' value='<%= product.pruchased %>'></p>

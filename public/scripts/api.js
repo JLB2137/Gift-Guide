@@ -1,8 +1,21 @@
 
-const URL = 'https://serpapi.com/playground?q=Apple&tbm=isch&ijn=0'
-const API_KEY = 'ae1778046f5540190b367e434568f827315065f246b3ade6a0f8fee3eb22dd71'
-$
+const URL = 'https://serpapi.com/search.json?q='
+const API_KEY = 'api_key=ae1778046f5540190b367e434568f827315065f246b3ade6a0f8fee3eb22dd71'
+const $search = $('#img-search')
+const $searchInput = $('#search-input')
+let promise = ''
+
 
 function imagesAPI() {
-    promise = $.ajax(`${URL}`)
+    //console.log(`${URL}${$searchInput.val()}&${API_KEY}`)
+    console.log(`${URL}grapes&engine=google&tbm=isch&${API_KEY}`)
+    promise = $.ajax(`${URL}grapes&engine=google&tbm=isch&${API_KEY}`)
+
+    promise.then(function(response) {
+        console.log(response)
+    }, function(error) {
+        console.log('error',error)
+    })
 }
+
+imagesAPI()
