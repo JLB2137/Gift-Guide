@@ -2,7 +2,7 @@
 console.log('this is working as a controller')
 
 const URL = 'https://api.unsplash.com/search/photos?'
-const API_KEY = 'client_id=TSXEbab3zM8UTwvTDlYS1KQwT0_b4NyzJs-UZrGxUzY'
+const API_KEY = 'client_id='
 const $search = $('#img-search')
 const $searchInput = $('#search-input')
 const $img = $('img')
