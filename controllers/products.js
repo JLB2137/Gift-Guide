@@ -28,6 +28,14 @@ productRouter.get('/gift-guide', (req,res) => {
     })
 })
 
+//image page
+productRouter.get('/gift-guide/image-selector', (req,res) => {
+    res.render('image_selector.ejs', {
+        images: imagesAPI()
+    })
+})
+
+
 //seed
 productRouter.get('/gift-guide/seed', (req,res) => {
     Product.create(seedProducts, (err,newProduct) => {
@@ -94,8 +102,6 @@ productRouter.get('/gift-guide/:productID', (req,res) => {
                 holiday.add(element.holiday)
                 recipient.add(element.recipient)
             })
-            console.log('showing the product:',product)
-            console.log('url',req.url)
             res.render('show_product.ejs', {
                 product,
                 holiday,
