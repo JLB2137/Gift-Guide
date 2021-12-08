@@ -2,7 +2,7 @@
 console.log('this is working as a controller')
 
 const URL = 'https://api.unsplash.com/search/photos?'
-const API_KEY = 'client_id='
+const API_KEY = 'client_id=TSXEbab3zM8UTwvTDlYS1KQwT0_b4NyzJs-UZrGxUzY'
 const $search = $('#img-search')
 const $searchInput = $('#search-input')
 const $img = $('img')
@@ -18,7 +18,7 @@ let counter = 0
 
 function imagesAPI() {
     //console.log(`${URL}${$searchInput.val()}&${API_KEY}`)
-    console.log(`${URL}grapes&engine=google&tbm=isch&${API_KEY}`)
+    console.log(`${URL}${API_KEY}${searchTerm}`)
     promise = $.ajax(`${URL}${API_KEY}${searchTerm}`)
 
     promise.then(function(response) {

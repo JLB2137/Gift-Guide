@@ -3,6 +3,27 @@ const productRouter = express.Router()
 const Product = require('../models/product')
 const seedProducts = require('../models/seed')
 const requestUpdater = require('../public/scripts/routerFunctions')
+const axios = require('axios')
+
+//remove when moving to heroku
+require('dotenv').config()
+
+const URL = process.env.URL
+const API_KEY = process.env.API_KEY
+let searchTerm = ''
+let responseImages = []
+
+
+//pull from the API using API Key and URL
+const grabImages = async (search) => {
+    try {
+        const response = await axios.get(`${URL}${API_KEY}${search}`)
+        //attach the images to the new variable
+        responseImages = response.data.results
+    } catch (err) {
+        console.log('Error with API')
+    }
+}
 
 
 //index page redirect
@@ -30,9 +51,8 @@ productRouter.get('/gift-guide', (req,res) => {
 
 //image page
 productRouter.get('/gift-guide/image-selector', (req,res) => {
-    res.render('image_selector.ejs', {
-        images: imagesAPI()
-    })
+    res.json('https://api.unsplash.com/search/photos?client_id=TSXEbab3zM8UTwvTDlYS1KQwT0_b4NyzJs-UZrGxUzY&query=study')
+    res.render('index.ejs')
 })
 
 
@@ -114,6 +134,7 @@ productRouter.get('/gift-guide/:productID', (req,res) => {
 
 //edit page
 productRouter.get('/gift-guide/:productID/edit', (req,res) => {
+    console.log('imageChecker',responseImages.length)
     Product.findById(req.params.productID, (err,product) => {
         Product.find({}, (err,allProducts) => {
             let holiday = new Set()
@@ -125,7 +146,8 @@ productRouter.get('/gift-guide/:productID/edit', (req,res) => {
             res.render('edit.ejs', {
                 product,
                 holiday,
-                recipient
+                recipient,
+                images: responseImages
             })
         })
     })
@@ -135,11 +157,22 @@ productRouter.get('/gift-guide/:productID/edit', (req,res) => {
 productRouter.put('/gift-guide/:productID', (req,res) => {
     //update checkboxes, if they haven't been filled out and are undefined set the value to false
     requestUpdater(req.body)
+    console.log(req.body)
     //update total cost based on input price and quantity
     req.body.totalCost = req.body.price * req.body.quantity
     Product.findByIdAndUpdate(req.params.productID, req.body, {new:true}, (err, product) => {
         res.redirect('/gift-guide')
     })
+})
+
+//image-selector
+productRouter.post('/gift-guide/:productID/edit', (req,res) => {
+    //grab the search input from the user
+    searchTerm = `&query=${req.body.imgSearchTerm}`
+    grabImages(searchTerm)
+    console.log('imageChecker on image selector',responseImages.length)
+    //need to create a timeout to allow for the API to grab the images
+    setTimeout(function() {res.redirect(`/gift-guide/${req.params.productID}/edit`)},1000)
 })
 
 //delete
