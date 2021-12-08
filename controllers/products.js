@@ -4,6 +4,7 @@ const Product = require('../models/product')
 const seedProducts = require('../models/seed')
 const requestUpdater = require('../public/scripts/routerFunctions')
 const axios = require('axios')
+let counter = 0
 
 //remove when moving to heroku
 require('dotenv').config()
@@ -26,6 +27,7 @@ const grabImages = async (search) => {
     }
 }
 
+//need to setup counter reset
 
 //index page redirect
 productRouter.get('/', (req,res) => {
@@ -79,8 +81,18 @@ productRouter.post('/gift-guide', (req,res) => {
 //show holidays
 productRouter.get('/gift-guide/holiday/:holidayID',(req,res) => {
     Product.find({holiday: `${req.params.holidayID}`}, (err,product) => {
-        res.render('show_holiday.ejs', {
-            product
+        Product.find({}, (err,allProducts) => {
+            let holiday = new Set()
+            let recipient = new Set()
+            allProducts.forEach(element => {
+                holiday.add(element.holiday)
+                recipient.add(element.recipient)
+            })
+            res.render('show_holiday.ejs', {
+                product,
+                holiday,
+                recipient
+            })
         })
     })
 
@@ -89,8 +101,18 @@ productRouter.get('/gift-guide/holiday/:holidayID',(req,res) => {
 //show recipient
 productRouter.get('/gift-guide/recipient/:recipientID',(req,res) => {
     Product.find({recipient: `${req.params.recipientID}`}, (err,product) => {
-        res.render('show_recipient.ejs', {
-            product
+         Product.find({}, (err,allProducts) => {
+            let holiday = new Set()
+            let recipient = new Set()
+            allProducts.forEach(element => {
+                holiday.add(element.holiday)
+                recipient.add(element.recipient)
+            })
+            res.render('show_recipient.ejs', {
+                product,
+                holiday,
+                recipient
+            })
         })
     })
 
@@ -166,7 +188,7 @@ productRouter.put('/gift-guide/:productID', (req,res) => {
     })
 })
 
-//image-selector edit
+//image-selector edit search
 productRouter.post('/gift-guide/:productID/edit', (req,res) => {
     //grab the search input from the user
     searchTerm = `&query=${req.body.imgSearchTerm}`
@@ -175,6 +197,7 @@ productRouter.post('/gift-guide/:productID/edit', (req,res) => {
     //need to create a timeout to allow for the API to grab the images
     setTimeout(function() {res.redirect(`/gift-guide/${req.params.productID}/edit`)},1000)
 })
+
 
 //image-selector new
 productRouter.post('/gift-guide/new', (req,res) => {

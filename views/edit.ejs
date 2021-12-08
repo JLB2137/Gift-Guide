@@ -22,13 +22,11 @@
                 <p>Quantity: <input class='info' type='text' name='quantity' placeholder='Quantity' value='<%= product.quantity %>'></p>
                 <p>Product URL: <input class='info' type='text' name='productURL' placeholder='Product URL' value='<%= product.productURL %>'></p>
                 <p>Image URL: <input id='imgURL' class='info' type='text' name='imgURL' placeholder='Image URL' value='<%= product.imgURL %>'></p>
-                <input id='img-next' type='submit' value='Next'>
-                <input id='img-return' type='submit' value='Return'>
                 <p>In Stock: <input class='info' type='checkbox' name='inStock' value='<%= product.inStock %>'></p>
                 <p>Purchased: <input class='info' type='checkbox' name='purchased' value='<%= product.pruchased %>'></p>
                 <input class='submit' type='submit' name='Submit'>
             </form>
-            <form action='/gift-guide/<%=product._id%>/edit' method='post'> 
+            <form action='/gift-guide/<%=product._id%>/edit' method='post'>
                 <% if (images.length == 0) { %>
                     <img src='<%=product.imgURL%>'>
                 <% } else { %>
@@ -36,8 +34,7 @@
                 <% } %>
                 <p>Image Search: <input id='search-input' type='text' value='cheese' name='imgSearchTerm'></p>
                 <input type='submit' value='Search'>
-                <input id='img-next' type='submit' value='Next'>
-                <input id='img-return' type='submit' value='Return'>
+                <input id='img-update' type='submit' value='Update Image URL'>
             </form>
         </div>
     </div>
