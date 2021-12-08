@@ -8,6 +8,7 @@ const axios = require('axios')
 //remove when moving to heroku
 require('dotenv').config()
 
+//image search setup
 const URL = process.env.URL
 const API_KEY = process.env.API_KEY
 let searchTerm = ''
@@ -165,7 +166,7 @@ productRouter.put('/gift-guide/:productID', (req,res) => {
     })
 })
 
-//image-selector
+//image-selector edit
 productRouter.post('/gift-guide/:productID/edit', (req,res) => {
     //grab the search input from the user
     searchTerm = `&query=${req.body.imgSearchTerm}`
@@ -173,6 +174,16 @@ productRouter.post('/gift-guide/:productID/edit', (req,res) => {
     console.log('imageChecker on image selector',responseImages.length)
     //need to create a timeout to allow for the API to grab the images
     setTimeout(function() {res.redirect(`/gift-guide/${req.params.productID}/edit`)},1000)
+})
+
+//image-selector new
+productRouter.post('/gift-guide/new', (req,res) => {
+    //grab the search input from the user
+    searchTerm = `&query=${req.body.imgSearchTerm}`
+    grabImages(searchTerm)
+    console.log('imageChecker on image selector',responseImages.length)
+    //need to create a timeout to allow for the API to grab the images
+    res.redirect('/gift-guide')
 })
 
 //delete
