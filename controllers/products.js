@@ -179,7 +179,6 @@ productRouter.get('/gift-guide/:productID', (req,res) => {
 
 //edit page
 productRouter.get('/gift-guide/:productID/edit', (req,res) => {
-    console.log('imageChecker',responseImages.length)
     Product.findById(req.params.productID, (err,product) => {
         Product.find({}, (err,allProducts) => {
             let holiday = new Set()
@@ -202,7 +201,6 @@ productRouter.get('/gift-guide/:productID/edit', (req,res) => {
 productRouter.put('/gift-guide/:productID', (req,res) => {
     //update checkboxes, if they haven't been filled out and are undefined set the value to false
     requestUpdater(req.body)
-    console.log(req.body)
     //update total cost based on input price and quantity
     req.body.totalCost = req.body.price * req.body.quantity
     Product.findByIdAndUpdate(req.params.productID, req.body, {new:true}, (err, product) => {
@@ -215,7 +213,6 @@ productRouter.post('/gift-guide/:productID/edit', (req,res) => {
     //grab the search input from the user
     searchTerm = `&query=${req.body.imgSearchTerm}`
     grabImages(searchTerm)
-    console.log('imageChecker on image selector',responseImages.length)
     //need to create a timeout to allow for the API to grab the images
     setTimeout(function() {res.redirect(`/gift-guide/${req.params.productID}/edit`)},1000)
 })
@@ -226,7 +223,6 @@ productRouter.post('/gift-guide/new', (req,res) => {
     //grab the search input from the user
     searchTerm = `&query=${req.body.imgSearchTerm}`
     grabImages(searchTerm)
-    console.log('imageChecker on image selector',responseImages.length)
     //need to create a timeout to allow for the API to grab the images
     res.redirect('/gift-guide')
 })
