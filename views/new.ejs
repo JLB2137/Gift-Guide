@@ -14,16 +14,6 @@
     <%- include('../partials/nav.ejs') %>
     <div class='products-container'>
         <div class='product'>
-            <form action='/gift-guide' method='post'>
-                <p>Name: <input type='text' name='name' placeholder='Name'></p>
-                <p>Holiday: <input type='text' name='holiday' placeholder='Holiday'></p>
-                <p>Recipient: <input type='text' name='recipient' placeholder='Recipient'></p>
-                <p>Price: <input type='text' name='price' placeholder='Price'></p>
-                <p>Quantity: <input type='text' name='quantity' placeholder='Quantity'></p>
-                <p>Product URL: <input type='text' name='productURL' placeholder='Product URL'></p>
-                <p>Image URL: <input id='imgURL' class='info' type='text' name='imgURL' placeholder='Image URL'></p>
-                <input type='submit' name='Submit'>
-            </form>
             <form action='/gift-guide/new' method='post'>
                 <% if (images.length == 0) { %>
                     <img src=''>
@@ -33,6 +23,16 @@
                 <p>Image Search: <input id='search-input' type='text' value='cheese' name='imgSearchTerm'></p>
                 <input type='submit' value='Search'>
                 <input id='img-update' type='submit' value='Update Image URL'>
+            </form>
+            <form action='/gift-guide' method='post'>
+                <p>Image URL: <input id='imgURL' class='info' type='text' name='imgURL' placeholder='Image URL'></p>
+                <p>Name: <input type='text' name='name' placeholder='Name'></p>
+                <p>Holiday: <input type='text' name='holiday' placeholder='Holiday'></p>
+                <p>Recipient: <input type='text' name='recipient' placeholder='Recipient'></p>
+                <p>Price: <input type='text' name='price' placeholder='Price'></p>
+                <p>Quantity: <input type='text' name='quantity' placeholder='Quantity'></p>
+                <p>Product URL: <input type='text' name='productURL' placeholder='Product URL'></p>
+                <input type='submit' name='Submit'>
             </form>
         </div>
     </div>
