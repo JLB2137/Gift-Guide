@@ -21,15 +21,18 @@
                 <p>Price: <input type='text' name='price' placeholder='Price'></p>
                 <p>Quantity: <input type='text' name='quantity' placeholder='Quantity'></p>
                 <p>Product URL: <input type='text' name='productURL' placeholder='Product URL'></p>
-                <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fderricos.com%2Fwp-content%2Fuploads%2F2020%2F07%2FAdobeStock_357639056-scaled.jpeg&f=1&nofb=1'>
-                <p>Image Search: <input id='search-input' type='text' value='cheese'></p>
-                <input id='img-search' type='submit' value='Search'>
-                <input id='img-next' type='submit' value='Next'>
-                <input id='img-return' type='submit' value='Return'>
-                <p>Image URL: <input id='imgURL' type='text' name='imgURL' placeholder='Image URL'></p>
-                <p>In Stock: <input type='checkbox' name='inStock'></p>
-                <p>Purchased: <input type='checkbox' name='purchased'></p>
+                <p>Image URL: <input id='imgURL' class='info' type='text' name='imgURL' placeholder='Image URL'></p>
                 <input type='submit' name='Submit'>
+            </form>
+            <form action='/gift-guide/new' method='post'>
+                <% if (images.length == 0) { %>
+                    <img src=''>
+                <% } else { %>
+                   <img src='<%=images[0].urls.full%>'>
+                <% } %>
+                <p>Image Search: <input id='search-input' type='text' value='cheese' name='imgSearchTerm'></p>
+                <input type='submit' value='Search'>
+                <input id='img-update' type='submit' value='Update Image URL'>
             </form>
         </div>
     </div>

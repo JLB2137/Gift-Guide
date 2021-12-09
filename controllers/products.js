@@ -149,7 +149,8 @@ productRouter.get('/gift-guide/new', (req,res) => {
         })
         res.render('new.ejs', {
             holiday,
-            recipient
+            recipient,
+            images: responseImages
         })
     })
 })
@@ -224,7 +225,7 @@ productRouter.post('/gift-guide/new', (req,res) => {
     searchTerm = `&query=${req.body.imgSearchTerm}`
     grabImages(searchTerm)
     //need to create a timeout to allow for the API to grab the images
-    res.redirect('/gift-guide')
+    setTimeout(function() {res.redirect('/gift-guide/new')},1000)
 })
 
 //delete
