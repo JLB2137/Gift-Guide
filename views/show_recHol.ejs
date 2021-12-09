@@ -5,22 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src='/public/scripts/holiday.js'></script>
     <link rel="stylesheet" type="text/css" href="/public/css/index_style.css"> 
+    <script defer src='/public/scripts/holiday.js'></script>
     <title>Gift Guide</title>
 </head>
 <body>
     <%- include('../partials/nav.ejs') %>
-    <h1><%=product[0].recipient%></h1>
-    <form action='/gift-guide/recipient-holiday/<%= product[0].recipient %>/<%= holiday.values().next().value %>' method='get'>
-        <h5>Holiday Filter:</h5>
-        <select id='selector'>
-            <% holiday.forEach(element => { %>
-                <option value='<%= element %>'><%= element %></option>
-            <% }) %>
-            <a href='/gift-guide'><input id='holiday-search' type='submit' value='Search'></a>
-        </select>
-    </form>
+        <h1><%=product[0].recipient%></h1>
+        <form action='/gift-guide/recipient-holiday/<%= product[0].recipient %>/<%= holiday.values().next().value %>' method='get'>
+            <h5>Holiday Filter:</h5>
+            <select id='selector'>
+                <% holiday.forEach(element => { %>
+                    <option value='<%= element %>'><%= element %></option>
+                <% }) %>
+                <a href='/gift-guide'><input id='holiday-search' type='submit' value='Search'></a>
+            </select>
+        </form>
+    
     <div class='products-container'>
             <% product.forEach(element => { %>
                 <div class='product'>

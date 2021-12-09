@@ -77,6 +77,25 @@ productRouter.post('/gift-guide', (req,res) => {
     })
 })
 
+//show recipient-holidays
+productRouter.get('/gift-guide/recipient-holiday/:recipientID/:holidayID',(req,res) => {
+    Product.find({holiday: `${req.params.holidayID}`,recipient: `${req.params.recipientID}`}, (err,product) => {
+        Product.find({}, (err,allProducts) => {
+            let holiday = new Set()
+            let recipient = new Set()
+            allProducts.forEach(element => {
+                holiday.add(element.holiday)
+                recipient.add(element.recipient)
+            })
+            res.render('show_recHol.ejs', {
+                product,
+                holiday,
+                recipient
+            })
+        })
+    })
+
+})
 
 //show holidays
 productRouter.get('/gift-guide/holiday/:holidayID',(req,res) => {
@@ -154,6 +173,9 @@ productRouter.get('/gift-guide/:productID', (req,res) => {
     })
 
 })
+
+
+
 
 //edit page
 productRouter.get('/gift-guide/:productID/edit', (req,res) => {
