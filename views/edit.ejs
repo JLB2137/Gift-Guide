@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%-include('../partials/head.ejs') %>
-    <link rel="stylesheet" type="text/css" href="/public/css/edit_style.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/update_style.css">
     <script defer src='/public/scripts/api.js'></script>
 </head>
 <body>
@@ -11,15 +11,15 @@
         <div class='product'>
             <%-include('../partials/form.ejs') %>
             <form action='/gift-guide/<%= product._id %>?_method=put' method='post'>
-                <p>Name: <input class='info' type='text' name='name' placeholder='Name' value='<%= product.name %>'></p>
-                <p>Holiday: <input class='info' type='text' name='holiday' placeholder='Holiday' value='<%= product.holiday %>'></p>
-                <p>Recipient: <input class='info' type='text' name='recipient' placeholder='Recipient' value='<%= product.recipient %>'></p>
-                <p>Price: <input class='info' type='text' name='price' placeholder='Price' value='<%= product.price %>'></p>
-                <p>Quantity: <input class='info' type='text' name='quantity' placeholder='Quantity' value='<%= product.quantity %>'></p>
-                <p>Product URL: <input class='info' type='text' name='productURL' placeholder='Product URL' value='<%= product.productURL %>'></p>
-                <p>Image URL: <input id='imgURL' class='info' type='text' name='imgURL' placeholder='Image URL' value='<%= product.imgURL %>'></p>
-                <p>In Stock: <input class='info' type='checkbox' name='inStock' value='<%= product.inStock %>'></p>
-                <p>Purchased: <input class='info' type='checkbox' name='purchased' value='<%= product.pruchased %>'></p>
+                <input class='info' type='text' name='name' placeholder='Name' value='<%= product.name %>'>
+                <input class='info' type='text' name='holiday' placeholder='Holiday' value='<%= product.holiday %>'>
+                <input class='info' type='text' name='recipient' placeholder='Recipient' value='<%= product.recipient %>'>
+                <input class='info' type='text' name='price' placeholder='Price' value='<%= product.price %>'>
+                <input class='info' type='text' name='quantity' placeholder='Quantity' value='<%= product.quantity %>'>
+                <input class='info' type='text' name='productURL' placeholder='Product URL' value='<%= product.productURL %>'>
+                <input id='imgURL' class='info' type='text' name='imgURL' placeholder='Image URL' value='<%= product.imgURL %>'>
+                <p class='checkbox'>In Stock: <input class='info' type='checkbox' name='inStock' value='<%= product.inStock %>'></p>
+                <p class='checkbox'>Purchased: <input class='info' type='checkbox' name='purchased' value='<%= product.pruchased %>'></p>
                 <input class='submit' type='submit' name='Submit'>
             </form>
         </div>

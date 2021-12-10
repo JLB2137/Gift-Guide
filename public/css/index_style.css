@@ -140,14 +140,14 @@ input {
     border-radius: 5px;
 }
 
-#header{
+#header {
   display: flex;
   justify-content: center;
 }
 
 #title {
   font-size: 50px;
-  padding: 10px;
+  padding: 15px;
   background-color: #D94740;
   color:#FFFEF5;
   width: max-content;
@@ -184,4 +184,5 @@ option {
 #selector {
   color: black;
 }
+
 

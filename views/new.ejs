@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%-include('../partials/head.ejs') %>
-    <link rel="stylesheet" type="text/css" href="/public/css/edit_style.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/update_style.css">
     <script defer src='/public/scripts/api.js'></script>
 </head>
 <body>
@@ -11,13 +11,15 @@
         <div class='product'>
             <%-include('../partials/form.ejs') %>
             <form action='/gift-guide' method='post'>
-                <p>Image URL: <input id='imgURL' class='info' type='text' name='imgURL' placeholder='Image URL'></p>
-                <p>Name: <input type='text' name='name' placeholder='Name'></p>
-                <p>Holiday: <input type='text' name='holiday' placeholder='Holiday'></p>
-                <p>Recipient: <input type='text' name='recipient' placeholder='Recipient'></p>
-                <p>Price: <input type='text' name='price' placeholder='Price'></p>
-                <p>Quantity: <input type='text' name='quantity' placeholder='Quantity'></p>
-                <p>Product URL: <input type='text' name='productURL' placeholder='Product URL'></p>
+                <input class='info' id='imgURL' class='info' type='text' name='imgURL' placeholder='Image URL'>
+                <input class='info' type='text' name='name' placeholder='Name'>
+                <input class='info' type='text' name='holiday' placeholder='Holiday'>
+                <input class='info' type='text' name='recipient' placeholder='Recipient'>
+                <input class='info' type='text' name='price' placeholder='Price'>
+                <input class='info' type='text' name='quantity' placeholder='Quantity'>
+                <input class='info' type='text' name='productURL' placeholder='Product URL'>
+                <p class='checkbox'>In Stock: <input class='info' type='checkbox' name='inStock'></p>
+                <p class='checkbox'>Purchased: <input class='info' type='checkbox' name='purchased'></p>
                 <input class='submit' type='submit' name='Submit'>
             </form>
         </div>
