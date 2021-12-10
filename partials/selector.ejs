@@ -1,0 +1,14 @@
+<div id='form'>
+    <div id='container'>
+        <form action='/gift-guide/recipient-holiday/<%= product[0].recipient %>/<%= holiday.values().next().value %>' method='get'>
+            <h5 class='form'>Holiday Filter:
+            <select class='form' id='selector'>
+                <% holiday.forEach(element => { %>
+                    <option value='<%= element %>'><%= element %></option>
+                <% }) %>
+                <a href='/gift-guide'><input class = 'form' id='holiday-search' type='submit' value='Search'></a>
+            </h5>
+            </select>
+        </form>
+    </div>
+</div>

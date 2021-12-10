@@ -1,3 +1,25 @@
+//remove for Heroku
+require('dotenv').config()
+//declare environmental variables
+const URL = process.env.URL
+const API_KEY = process.env.API_KEY
+//require axios for API requests
+const axios = require('axios')
+//constants for use in functions
+let responseImages = []
+//pull from the API using API Key and URL
+const grabImages = async (search) => {
+    try {
+        const response = await axios.get(`${URL}${API_KEY}${search}`)
+        //attach the images to the new variable
+        responseImages = response.data.results
+    } catch (err) {
+        console.log(err,() => console.log(err))
+    }
+}
+
+//a function to update the variables as provided by the edit/new pages where checkbox values are changed before
+//they are saved in the database
 function checkboxUpdater(productObject) {
     if (productObject.purchased !== undefined) {
         productObject.purchased = true
@@ -17,16 +39,6 @@ function checkboxUpdater(productObject) {
     }
 }
 
-//pull from the API using API Key and URL
-const grabImages = async (search) => {
-    try {
-        const response = await axios.get(`${URL}${API_KEY}${search}`)
-        //attach the images to the new variable
-        responseImages = response.data.results
-    } catch (err) {
-        console.log('Error with API')
-    }
-}
 
 //a function used to grab all the products to create variables used by the nav on the index page
 function findAllProductsIndex(model,response,showPage) {
@@ -80,11 +92,11 @@ function findAllProductsUpdate(model,response,showPage,product) {
     })
 }
 
-
 module.exports = {
     checkboxUpdater,
     grabImages,
     findAllProductsIndex,
     findAllProductsShow,
-    findAllProductsUpdate
+    findAllProductsUpdate,
+    responseImages
 }

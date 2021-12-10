@@ -1,41 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <%-include('../partials/head.ejs') %>
     <link rel="stylesheet" type="text/css" href="/public/css/index_style.css"> 
     <script defer src='/public/scripts/holiday.js'></script>
-    <title>Gift Guide</title>
 </head>
 <body>
     <%- include('../partials/nav.ejs') %>
-    <% console.log(product.length) %>
     <% if (product.length != 0) {%>
-        <h1><%=product[0].recipient%></h1>
-        <form action='/gift-guide/recipient-holiday/<%= product[0].recipient %>/<%= holiday.values().next().value %>' method='get'>
-            <h5>Holiday Filter:</h5>
-            <select id='selector'>
-                <% holiday.forEach(element => { %>
-                    <option value='<%= element %>'><%= element %></option>
-                <% }) %>
-                <a href='/gift-guide'><input id='holiday-search' type='submit' value='Search'></a>
-            </select>
-        </form>
-    
-        <div class='products-container'>
-                <% product.forEach(element => { %>
-                    <div class='product'>
-                        <a href='/gift-guide/<%= element._id %>'><img width='400px' src='<%= element.imgURL %>'></a>
-                        <h3>Name: <a href='/gift-guide/<%= element._id %>'><%= element.name %></h3></a>
-                        <h5>Holiday: <a href='/gift-guide/holiday/<%= element.holiday %>'><%= element.holiday %></a></h5>
-                        <h5>Recipient: <a href='/gift-guide/recipient/<%= element.recipient %>'><%= element.recipient %></a></h5>
-                    </div>
-                <% }) %>
+        <div id='header'>
+            <h1 id='title'><%=product[0].recipient%></h1>
         </div>
+        <%-include('../partials/selector.ejs') %>
+    
+        <%-include('../partials/show.ejs') %>
     <%} else { %>
-        <h1>No Products Exist for This Holiday</h1>
+        <div id='header'>
+            <h1 id='title'>No Products Exist for This Holiday :(</h1>
+        </div>
     <% } %>
 </body>
 </html>

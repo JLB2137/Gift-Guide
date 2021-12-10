@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <%-include('../partials/head.ejs') %>
     <link rel="stylesheet" type="text/css" href="/public/css/edit_style.css">
     <script defer src='/public/scripts/api.js'></script>
-    <title>Document</title>
 </head>
 <body>
     <%- include('../partials/nav.ejs') %>
     <div class='products-container'>
         <div class='product'>
+            <%-include('../partials/form.ejs') %>
             <form action='/gift-guide/<%= product._id %>?_method=put' method='post'>
                 <p>Name: <input class='info' type='text' name='name' placeholder='Name' value='<%= product.name %>'></p>
                 <p>Holiday: <input class='info' type='text' name='holiday' placeholder='Holiday' value='<%= product.holiday %>'></p>
@@ -25,16 +21,6 @@
                 <p>In Stock: <input class='info' type='checkbox' name='inStock' value='<%= product.inStock %>'></p>
                 <p>Purchased: <input class='info' type='checkbox' name='purchased' value='<%= product.pruchased %>'></p>
                 <input class='submit' type='submit' name='Submit'>
-            </form>
-            <form action='/gift-guide/<%=product._id%>/edit' method='post'>
-                <% if (images.length == 0) { %>
-                    <img src='<%=product.imgURL%>'>
-                <% } else { %>
-                   <img src='<%=images[0].urls.full%>'>
-                <% } %>
-                <p>Image Search: <input id='search-input' type='text' value='cheese' name='imgSearchTerm'></p>
-                <input type='submit' value='Search'>
-                <input id='img-update' type='submit' value='Update Image URL'>
             </form>
         </div>
     </div>

@@ -1,0 +1,10 @@
+<form action='/gift-guide/new' method='post'>
+    <% if (images.length == 0) { %>
+        <img src=''>
+    <% } else { %>
+       <img src='<%=images[0].urls.full%>'>
+    <% } %>
+    <p>Image Search: <input id='search-input' type='text' value='cheese' name='imgSearchTerm'></p>
+    <input class='submit' type='submit' value='Search'>
+    <input class='submit' id='img-update' type='submit' value='Update Image URL'>
+</form>

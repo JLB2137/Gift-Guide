@@ -102,15 +102,12 @@ border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
   margin: 10px;
 }
 
 .product {
   display: flex;
   flex-direction: column;
-  text-align: center;
   width: 500px;
   background-color: #8fb14e;
   color:#f9f355;

@@ -2,14 +2,13 @@ const express = require('express')
 const productRouter = express.Router() 
 const Product = require('../models/product')
 const seedProducts = require('../models/seed')
-const routerFunctions = require('../models/routerFunctions')
+const routerFunctions = require('./routerFunctions')
 const checkboxUpdater = routerFunctions.checkboxUpdater
 const grabImages = routerFunctions.grabImages
 const findAllProductsIndex = routerFunctions.findAllProductsIndex
 const findAllProductsShow = routerFunctions.findAllProductsShow
 const findAllProductsUpdate = routerFunctions.findAllProductsUpdate
-const axios = require('axios')
-let counter = 0
+let searchTerm = ''
 
 
 //remove when moving to heroku
@@ -18,8 +17,7 @@ require('dotenv').config()
 //image search setup
 const URL = process.env.URL
 const API_KEY = process.env.API_KEY
-let searchTerm = ''
-let responseImages = []
+
 
 
 //index page redirect
@@ -72,6 +70,7 @@ productRouter.get('/gift-guide/new', (req,res) => {
     findAllProductsUpdate(Product,res,'new.ejs','')
 })
 
+
 //show product
 productRouter.get('/gift-guide/:productID', (req,res) => {
     Product.findById(req.params.productID, (err, product) => {
@@ -79,8 +78,6 @@ productRouter.get('/gift-guide/:productID', (req,res) => {
     })
 
 })
-
-
 
 //edit page
 productRouter.get('/gift-guide/:productID/edit', (req,res) => {
@@ -100,7 +97,7 @@ productRouter.post('/gift-guide', (req,res) => {
     })
 })
 
-//image-selector edit search
+//image search edit page
 productRouter.post('/gift-guide/:productID/edit', (req,res) => {
     //grab the search input from the user
     searchTerm = `&query=${req.body.imgSearchTerm}`
@@ -110,7 +107,7 @@ productRouter.post('/gift-guide/:productID/edit', (req,res) => {
 })
 
 
-//image-selector new
+//image search new page
 productRouter.post('/gift-guide/new', (req,res) => {
     //grab the search input from the user
     searchTerm = `&query=${req.body.imgSearchTerm}`

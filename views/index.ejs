@@ -1,25 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer type="text/javascript" src="../public/scripts/script.js"></script>
+    <%-include('../partials/head.ejs') %>
     <link rel="stylesheet" type="text/css" href="/public/css/index_style.css"> 
-    <title>Gift Guide</title>
 </head>
 <body>
     <%- include('../partials/nav.ejs') %>
-    <div class='products-container'>
-            <% product.forEach(element => { %>
-                <div class='product'>
-                    <a href='/gift-guide/<%= element._id %>'><img width='400px' src='<%= element.imgURL %>'></a>
-                    <h3>Name: <a href='/gift-guide/<%= element._id %>'><%= element.name %></h3></a>
-                    <h5>Holiday: <a href='/gift-guide/holiday/<%= element.holiday %>'><%= element.holiday %></a></h5>
-                    <h5>Recipient: <a href='/gift-guide/recipient/<%= element.recipient %>'><%= element.recipient %></a></h5>
-                </div>
-            <% }) %>
-    </div>
+    <%-include('../partials/show.ejs') %>
 </body>
 </html>
