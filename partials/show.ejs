@@ -1,10 +1,22 @@
 <div class='products-container'>
     <% product.forEach(element => { %>
-        <div class='product'>
-            <a href='/gift-guide/<%= element._id %>'><img width='400px' src='<%= element.imgURL %>'></a>
-            <h3><a href='/gift-guide/<%= element._id %>'><%= element.name %></h3></a>
-            <h5>Holiday: <a href='/gift-guide/holiday/<%= element.holiday %>'><%= element.holiday %></a></h5>
-            <h5>Recipient: <a href='/gift-guide/recipient/<%= element.recipient %>'><%= element.recipient %></a></h5>
-        </div>
+        <% if (element.inStock == true) { %>
+            <div class='product'>
+                <a href='/gift-guide/<%= element._id %>'><img width='400px' src='<%= element.imgURL %>'></a>
+        <% } else { %>
+            <div id='stock' class='product'>
+                <a href='/gift-guide/<%= element._id %>'><img id='img-stock' width='400px' src='<%= element.imgURL %>'></a>
+        <% } %>
+                <h3><a href='/gift-guide/<%= element._id %>'><%= element.name %></h3></a>
+                <h5>Holiday: <a href='/gift-guide/holiday/<%= element.holiday %>'><%= element.holiday %></a></h5>
+                <h5>Recipient: <a href='/gift-guide/recipient/<%= element.recipient %>'><%= element.recipient %></a></h5>
+                <h5>Purchased: 
+                    <% if (element.purchased == true) { %>
+                        <a>&#10004;</a>
+                    <% } else { %>
+                        <a>X</a>
+                    <% } %>
+                </h5>
+            </div>
     <% }) %>
 </div>

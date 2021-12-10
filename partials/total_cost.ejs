@@ -1,0 +1,7 @@
+<div class='total-cost'>
+    <% let grossCost = 0 %>
+    <% product.forEach(element => { %>
+        <% grossCost = grossCost + element.totalCost %>
+    <% }) %>
+    <h7>Total Cost: $<%= grossCost %></h7>
+</div>

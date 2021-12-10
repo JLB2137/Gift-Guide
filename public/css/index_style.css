@@ -11,6 +11,7 @@ background: linear-gradient(135deg, #80A646 25%, transparent 25%) -10px 0/ 20px 
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-radius: 5px;
     display: flex;
+    border: solid #fffef5 2.5px;
   }
 
 .nav a {
@@ -119,6 +120,19 @@ background: linear-gradient(135deg, #80A646 25%, transparent 25%) -10px 0/ 20px 
     border: solid #FFFEF5 5px;
 }
 
+#stock {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 200px;
+  margin: 10px;
+  background-color: #D94740;
+  color:#f9f355;
+  padding: 10px;
+  border-radius: 5px;
+  border: solid #FFFEF5 5px;
+}
+
 .product a {
     text-decoration: inherit;
     color: #FFFEF5;
@@ -126,6 +140,12 @@ background: linear-gradient(135deg, #80A646 25%, transparent 25%) -10px 0/ 20px 
 
 .product h3, .product h5, .product input {
     margin: 4px;
+}
+
+#img-stock {
+  width: 150px;
+  border-radius: 5px;
+  border: solid #8fb14e 2.5px;
 }
 
 img {
@@ -152,6 +172,7 @@ input {
   color:#FFFEF5;
   width: max-content;
   border-radius: 10px;
+  border: solid #fffef5 2.5px;
 }
 
 
@@ -165,6 +186,7 @@ input {
   background-color: #D94740;
   width: 600px;
   border-radius: 10px;
+  border: solid #fffef5 2.5px;
 }
 
 .form {
@@ -183,6 +205,19 @@ option {
 
 #selector {
   color: black;
+}
+
+.total-cost {
+  display:flex;
+  justify-content: center;
+  width: max-content;
+  background-color: #D94740;
+  color: #FFFEF5;
+  padding: 10px;
+  margin: 10px auto;
+  font-size: 25px;
+  border-radius: 5px;
+  border: solid #fffef5 2.5px;
 }
 
 
