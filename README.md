@@ -11,32 +11,60 @@
 - Axios
 - Express
 - Method-Override
+- Uplash Image API
 
 ## Screenshots
 
 ##### *Gift Guide*
-![Giphy Search Engine!](/images/giphy-search-engine.png "Giphy Search Engine")
+![Gift Guide](/public/images/hp.png "Gift Guide")
 
-##### *Giphy Search Engine Rating Selector*
-![Giphy Search Engine Rating Selector](/images/rating-selector.png "Giphy Search Engine Rating Selector")
+##### *Gift Guide Navigation*
+![Gift Guide Navigation](/public/images/nav.png "Gift Guide Navigation")
+
+##### *Holiday Navigation*
+![Holiday Navigation](/public/images/nav-hol.png "Holiday Navigation")
+
+##### *Recipient Navigation*
+![Recipient Navigation](/public/images/nav-rec.png "Recipient Navigation")
+
+##### *Holiday Page*
+![Holiday Page](/public/images/hol.png "Holiday Page")
+
+##### *Recipient Page*
+![Recipient Page](/public/images/rec.png "Recipient Page")
+
+##### *Recipient Holiday Filter Page*
+![Recipient Holiday Filter Page](/public/images/rec-hol.png "Recipient Holiday Filter Page")
+
+##### *Product Display Page*
+![Product Display Page](/public/images/pdp.png "Product Display Page")
+
+##### *Edit Product*
+![Edit Product](/public/images/edit.png "Edit Product")
+
+##### *New Product*
+![New Product](/public/images/new.png "New Product")
 
 
 ## Getting Started
 
-[Giphy Search Engine!](https://jlb2137.github.io/)
+[Gift Guide](https://gift-guide-project.herokuapp.com/)
 
-This app is simple to use and allows you to cycle gifs quickly pulling from Giphy! You are able to perform 4 functions using the online app.
+The holiday gift guide is designed to make it easier and more approachable to keep track of the gifts you have purchsed for any occassion.
 
-1. Submit (Search) - This function is used to search for new gifs based on the input of the user. Using this button will pull from the input of the user. Depending on what is input in the search box, the app will search the giphy database and return the results. If no results appear, the current image will persist.
+1. Navigation - Navigation persists on all pages accross the gift guide. It has an attached 4 functions.
+   1. Home - This button will return you to the home page from any location.
+   2. Holiday Dropdown - This dropdown is a self-updating dropdown that will display all of the holidays that have been input for any products in the database. It will navigate you to the respective holiday page.
+   3. Recipient Dropdown - This dropdown is also self-updating and will show all of the recipients currently in the system. Selecting a recipient will bring you to that recipients page of gifts.
+   4. Add New Gifts - This button will bring you to the new page where a gift can be added.
 
+2. Index Pages - The pages are as follows, the core index page, the holiday show page, the recipient show page, and the holiday-recipient show page. Each page serves to help the user with a different layer of filtering. Each show page with the exception of the core index page will also display the total cost of all the gifts associated with it. Additionally, selecting the image of a product will take you to that product's display page, while selecting either the holiday or recipient will redirect you to that recipient or holiday show page respectively.
 
-2. Shuffle - This function allows you to move through the results of the API search. It will take you through the next result returned from the API and continue until the end of the results at which point it will return you to the first result. This function does not work until the user has already used the Submit (Search) function.
+3. Product Display Pages - By selecting a product by it's image you will be taken to the PDP. This maintains all information about the product and a link that will redirect the user to the product's direct URL. This page also allows you to delete the product entirely or adjust any information.
 
-3. Rating - This selector adjusts the rating of the gif results. All possible variations are provided to the user and are inclusive of strictor ratings. Using this selector will reset the result and maintain whatever search the user has input.
-
-4. Copy - This function copies the original sized gif file and adds it to the user's clipboard. This function will not work until the user has used the Submit (Search) function.
+4. Edit/New Pages - These pages will direct you to a form that can be used to input product information for the gift you are buying. If the user does not wish to put in the actual image URL for the gift they are buying, they are prvodided with the ability to search for an image using the Uplash API. This API will grab images from the Uplash DB and return them for the user. If the user likes the image, using the UPDATE IMAGE URL button will allow the user to automatically input the URL for the image they found into the form.
 
 
 ## Future Enhancements
 
-I would love to add a counter to the page where you can see the number of results as you "Shuffle" through the results. I would also like to use an arrow key to continue to move back and forth through the stack of gifs returned.
+I would like to add functionality to move through additional images returned from the API. I would also like to add more functionality and filtering for show pages.
