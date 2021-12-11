@@ -139,6 +139,11 @@ img {
   justify-content: center;
 }
 
+#search-input {
+  width: 200px;
+  border-radius: 5px;
+}
+
 .submit {
     background-color: #D94740;
     color: #FFFEF5;
@@ -166,3 +171,4 @@ input {
 form {
   margin: 10px;
 }
+

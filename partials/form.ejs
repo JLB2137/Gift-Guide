@@ -1,10 +1,12 @@
 <form action='/gift-guide/new' method='post'>
-    <% if (images.length == 0) { %>
+    <% if (images.length == 0 && product == '') { %>
         <img src='https://www.dsm.com/food-specialties/en_US/markets/dairy/cheddar-cheese.thumb.800.480.png'>
+    <% } else if (images.length == 0) { %>
+        <img src='<%=product.imgURL%>'>
     <% } else { %>
        <img src='<%=images[0].urls.full%>'>
     <% } %>
-    <p>Image Search: <input id='search-input' type='text' value='cheese' name='imgSearchTerm'></p>
+    <p>Search for Images: <input id='search-input' type='text' name='imgSearchTerm'></p>
     <input class='submit' type='submit' value='Search'>
     <input class='submit' id='img-update' type='submit' value='Update Image URL'>
 </form>

@@ -18,8 +18,16 @@
                 <input class='info' type='text' name='quantity' placeholder='Quantity' value='<%= product.quantity %>'>
                 <input class='info' type='text' name='productURL' placeholder='Product URL' value='<%= product.productURL %>'>
                 <input id='imgURL' class='info' type='text' name='imgURL' placeholder='Image URL' value='<%= product.imgURL %>'>
-                <p class='checkbox'>In Stock: <input class='info' type='checkbox' name='inStock' value='<%= product.inStock %>'></p>
-                <p class='checkbox'>Purchased: <input class='info' type='checkbox' name='purchased' value='<%= product.pruchased %>'></p>
+                <% if (product.inStock == true) { %>
+                    <p class='checkbox'>In Stock: <input class='info' type='checkbox' name='inStock' value='<%= product.inStock %>' checked='checked'></p>
+                <% } else { %>
+                    <p class='checkbox'>In Stock: <input class='info' type='checkbox' name='inStock' value='<%= product.inStock %>'></p>
+                <% } %>
+                <% if (product.purchased == true) { %>
+                    <p class='checkbox'>Purchased: <input class='info' type='checkbox' name='purchased' value='<%= product.pruchased %>' checked='checked'></p>
+                <% } else { %>
+                    <p class='checkbox'>Purchased: <input class='info' type='checkbox' name='purchased' value='<%= product.inStock %>'></p>
+                <% } %>
                 <input class='submit' type='submit' name='Submit'>
             </form>
         </div>

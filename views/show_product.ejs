@@ -20,8 +20,17 @@
             <p>Price: $<%= product.price %></p>
             <p>Quantity: <%= product.quantity %></p>
             <p>Total Cost: $<%= product.totalCost %></p>
-            <p>In Stock: <%= product.inStock %></p>
-            <a href='<%= product.productURL %>'><p>Link</p></a>
+            <% if (product.inStock == true) { %>
+                <p>In Stock: &#10004;</p>
+            <% } else { %>
+                <p>In Stock: X</p>
+            <% } %>
+            <% if (product.purchased == true) { %>
+                <p>Purchased: &#10004;</p>
+            <% } else { %>
+                <p>Purchased: X</p>
+            <% } %>
+            <a href='<%= product.productURL %>' target='_blank'><p>Link</p></a>
             <div class='forms'>
                 <form action='/gift-guide/<%= product._id %>/edit'>
                     <input type='submit' value='Adjust Gift Information'>
