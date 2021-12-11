@@ -21,4 +21,9 @@ productURL: 'https://www.amazon.com/Spalding-Zi-Indoor-Outdoor-Basketball-29-5/d
 imgURL: 'https://i.imgur.com/ihsnaoL.jpg',
 purchased: true 
 
-}]
+},
+    {"recipient":"Dylan","name":"Tea Infuser","price":{"$numberInt":"9"},"quantity":{"$numberInt":"1"},"totalCost":{"$numberInt":"9"},"holiday":"Christmas","inStock":true,"productURL":"https://www.amazon.com/dp/B00B5EE0A6/?tag=brokegifts-20&ascsubtag=v7_1_3_2sfv_P0_4_x01_-srt-","imgURL":"https://m.media-amazon.com/images/I/61lG615s13L._AC_SL1500_.jpg","purchased":true},
+    {"recipient":"Lily","name":"Burts Bees","price":{"$numberDouble":"11.92"},"quantity":{"$numberInt":"1"},"totalCost":{"$numberDouble":"11.92"},"holiday":"Christmas","inStock":true,"productURL":"https://www.amazon.com/Burts-Bees-Holiday-Travel-Products/dp/B004EDYQX6/ref=sr_1_2_mod_primary_new?crid=2ASXA63B7PBYV&keywords=burts+bees+gift+set&qid=1639171351&rdc=1&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=burts+bee%2Caps%2C177&sr=8-2","imgURL":"https://m.media-amazon.com/images/I/71wwMPcafcL._SL1500_.jpg","purchased":true},
+    {"recipient":"Jill","name":"Kheils Kit","price":{"$numberInt":"30"},"quantity":{"$numberInt":"1"},"totalCost":{"$numberInt":"30"},"holiday":"Christmas","inStock":true,"productURL":"https://www.kiehls.com/gifts-and-value-sets/gifts-for-all/ultra-hydrators-skincare-set/WW0182KIE.html","imgURL":"https://www.kiehls.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-kiehls-master-catalog/default/dw4e8093d2/nextgen/holiday/holiday-2021/Kiehls_Holiday_Alt_Imagery_940x940_0001_kiehls-holiday-2021-ultra-hydrators-3605972679970-front-01.jpg?sw=698&sfrm=jpg&q=70","purchased":true},
+    {"recipient":"Jill","name":"Funny Notepad","price":{"$numberInt":"7"},"quantity":{"$numberInt":"1"},"totalCost":{"$numberInt":"7"},"holiday":"Christmas","inStock":false,"productURL":"https://www.amazon.com/dp/1729432107/?tag=brokegifts-20&ascsubtag=v7_1_3_2sfv_P0_4_x01_-srt-","imgURL":"https://m.media-amazon.com/images/P/1729432107.01._SCLZZZZZZZ_SX500_.jpg","purchased":true}
+]
